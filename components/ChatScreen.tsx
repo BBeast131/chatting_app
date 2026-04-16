@@ -42,7 +42,6 @@ export default function ChatScreen() {
   const socketRef = useRef<WebSocketService | null>(null);
 
   const wsUrl = Constants.expoConfig?.extra?.WS_URL as string | undefined;
-  console.log("weUrl", wsUrl);
   const wsUser = Constants.expoConfig?.extra?.WS_USER as string | undefined;
   const wsToken = Constants.expoConfig?.extra?.WS_TOKEN as string | undefined;
 
@@ -104,8 +103,7 @@ export default function ChatScreen() {
     }
   };
 
-  //   const disabledSend = !input.trim() || status !== "connected";
-  const disabledSend = false;
+    const disabledSend = !input.trim() || status !== "connected";
 
   const renderItem = ({ item }: { item: ChatMessage }) => (
     <MessageBubble message={item} />
